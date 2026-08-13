@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f1e8">
+  <title>神人·抽象浓度测试</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main id="app">
+    <section class="screen welcome active" id="welcome">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="返回首页"><span class="brand-mark">神</span><span>抽象研究所</span></a>
+        <span class="lab-note">ABSURDITY LAB · 2026</span>
+      </header>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PERSONALITY FIELD TEST / NO. 021</p>
+          <h1>抽象人格浓度测试<span>你是第几阶神人？</span></h1>
+          <p class="lead">现实里循规蹈矩，脑子里早已被神人入侵？测一测你的精神世界，到底有多抽象。</p>
+          <div class="meta-row"><span>20 道单选题</span><i></i><span>约 2–3 分钟</span><i></i><span>5 种人格档位</span></div>
+          <button class="primary" id="startBtn">开始测试 <span>→</span></button>
+          <p class="disclaimer">趣味测试 · 仅供娱乐 · 非专业心理量表</p>
+        </div>
+        <div class="hero-art" aria-label="五种抽象人格角色插画">
+          <div class="portal p1"></div><div class="portal p2"></div>
+          <button class="character thinker" data-hint="它似乎知道一切"><div class="halo"></div><div class="head"><i></i></div><div class="body"></div><div class="arm a"></div><div class="arm b"></div><span>?</span></button>
+          <button class="character reader" data-hint="还在努力理解世界"><div class="head"><i></i></div><div class="body"></div><div class="book">现实<br>指南</div><span>?</span></button>
+          <button class="character masked" data-hint="外壳之下另有其人"><div class="head"><i></i></div><div class="body"></div><div class="mask"><b>◉</b><em>◡</em></div><span>?</span></button>
+          <button class="character laugher" data-hint="嘴角正在承受考验"><div class="head"><i></i></div><div class="body"><b class="tie"></b></div><div class="brow"></div><div class="mouth">﹏</div><span>?</span></button>
+          <button class="character jiahao" data-hint="黑衣之下能量涌动"><div class="head"><i></i></div><div class="body"><b class="j-mark">J</b></div><div class="spark">✦</div><span>?</span></button>
+          <div class="orbit o1">?</div><div class="orbit o2">✦</div><div class="orbit o3">∞</div>
+        </div>
+      </div>
+      <div class="levels"><span>五个精神信号等待解锁</span><b>点击小人观察异常反应</b><i id="characterHint">人格档案仍处于加密状态</i></div>
+    </section>
+
+    <section class="screen quiz" id="quiz">
+      <header class="quiz-head"><button class="brand compact" id="quitBtn"><span class="brand-mark">神</span><span>抽象研究所</span></button><span id="count">01 / 20</span></header>
+      <div class="progress"><i id="progressBar"></i></div>
+      <div class="question-wrap" id="questionWrap">
+        <p class="question-no" id="questionNo">QUESTION 01</p>
+        <h2 id="questionText"></h2>
+        <div class="options" id="options"></div>
+      </div>
+      <p class="quiz-foot">凭第一直觉作答，答案没有对错</p>
+    </section>
+
+    <section class="screen loading" id="loading">
+      <div class="loading-glyph"><span>神</span><i></i><i></i><i></i></div>
+      <p>正在计算神的浓度……</p>
+      <small id="loadingText">连接精神脑回路</small>
+      <div class="loading-line"><i></i></div>
+    </section>
+
+    <section class="screen result" id="result">
+      <header class="result-head"><a class="brand" href="#"><span class="brand-mark">神</span><span>抽象研究所</span></a><span>PERSONALITY REPORT</span></header>
+      <div class="report" id="report">
+        <div class="result-title"><p>你的抽象人格</p><h1 id="resultName"></h1><span id="resultCode"></span></div>
+        <div class="score-block"><p>神的浓度</p><strong><span id="scoreNumber">0</span><sup>%</sup></strong><blockquote id="resultQuote"></blockquote></div>
+        <div class="result-character" id="resultCharacter"><div class="result-aura"></div><div class="result-avatar"><div class="avatar-head"></div><div class="avatar-body"></div><div class="avatar-prop"></div></div></div>
+        <div class="chart-block"><h2>精神世界四维图谱</h2><canvas id="radar" width="520" height="420"></canvas><div class="tags" id="tags"></div><p class="rarity" id="rarity"></p></div>
+        <article class="reading"><p class="section-label">PERSONALITY NOTES</p><h2>人格详细解读</h2><div id="scene" class="scene"></div><div id="description"></div><aside id="tip"></aside></article>
+      </div>
+      <div class="actions"><button class="primary" id="posterBtn">生成结果海报 <span>↓</span></button><button class="secondary" id="shareBtn">分享给好友</button><button class="text-btn" id="restartBtn">重新测试</button></div>
+      <p class="result-disclaimer">本测试仅为趣味娱乐，不具备任何心理学参考价值。</p>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal" id="shareModal" aria-hidden="true"><div class="modal-card"><button class="close" id="closeModal" aria-label="关闭">×</button><p class="eyebrow">SHARE THE TEST</p><h2>测测好友的神人等级</h2><div id="shareQr" class="share-qr"></div><p id="shareUrl">复制链接，邀请好友进入精神世界。</p><button class="primary" id="copyBtn">复制测试链接</button></div></div>
+  <script src="vendor/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
