@@ -69,6 +69,16 @@
     </section>
   </main>
   <div class="toast" id="toast" role="status"></div>
+  <div class="poster-modal" id="posterModal" aria-hidden="true">
+    <div class="poster-panel">
+      <button class="close" id="closePoster" aria-label="关闭">×</button>
+      <p class="eyebrow">YOUR RESULT POSTER</p>
+      <h2>结果海报已生成</h2>
+      <p class="poster-guide" id="posterGuide">长按图片保存到手机</p>
+      <img id="posterImage" alt="抽象人格测试结果海报">
+      <button class="primary poster-download" id="downloadPosterBtn">保存海报</button>
+    </div>
+  </div>
   <div class="modal" id="shareModal" aria-hidden="true"><div class="modal-card"><button class="close" id="closeModal" aria-label="关闭">×</button><p class="eyebrow">SHARE THE TEST</p><h2>测测好友的神人等级</h2><div id="shareQr" class="share-qr"></div><p id="shareUrl">复制链接，邀请好友进入精神世界。</p><button class="primary" id="copyBtn">复制测试链接</button></div></div>
   <script src="vendor/qrcode.min.js"></script>
   <script src="app.js"></script>
